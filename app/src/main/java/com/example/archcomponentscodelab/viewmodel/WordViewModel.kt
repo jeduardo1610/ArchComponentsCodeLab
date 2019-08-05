@@ -25,3 +25,15 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(word)
     }
 }
+/*
+Warning: A memory leak can occur if you keep in the ViewModel a reference to a context with a shorter lifecycle:
+
+Activity
+Fragment
+View
+All these objects can be destroyed by the operative system and recreated when there's a configuration change, and this can happen many times during the lifecycle of a ViewModel.
+
+As an example, if you keep a reference of an Activity in the ViewModel, you may end up with a reference to a destroyed Activity. This is a memory leak.
+
+If you need the application context, use AndroidViewModel, as shown in this codelab.
+ */
